@@ -2,6 +2,7 @@
   "name": "react3dtagcloud",
   "version": "0.0.1",
   "description": "基于 react 的 3d 标签云",
+  "repository": "crazylxr/3dtagcloudforeact",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
@@ -9,7 +10,7 @@
   },
   "keywords": ["react", "3D", "tag", "标签"],
   "author": "taoweng",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
