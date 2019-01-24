@@ -34,10 +34,9 @@ class Demo extends React.Component {
 
 | 属性 | 说明 | 类型 | 默认值
 | --- | --- | --- | -- |
-| tagName | 标签数组 | Array<string>| []
+| tagName | 标签数组 | Array&lt;string&gt;| []
 | speed | 球体旋转速度 | number | 10
 | radius | 球的半径 | number | 200 |
-| millisec | 刷新时间 | number | 64 |
 
 ## License
 MIT

@@ -7,26 +7,28 @@ export default class TagCloud extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			speed: this.props.speed || 10,
+			speed: this.props.speed || 1,
 			R: props.radius || 200,
-			angleX: (props.speed || 10) * BASEANGLE,
-			angleY: (props.speed || 10) * BASEANGLE,
+			angleX: (props.speed || 1) * BASEANGLE,
+			angleY: (props.speed || 1) * BASEANGLE,
 			tags: [],
-			millisec: props.millisec || 64,
 			timer: ''
 		}
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if(nextProps.tagName != this.props.tagName) {
-			if(!this.state.timer) {
-				const timer = setInterval(() => {
-					this.rotateX()
-					this.rotateY()
-				}, this.state.millisec)
 
-				this.setState({ timer: timer })
+			const animation = () => {
+				this.rotateX()
+				this.rotateY()
+				requestAnimationFrame(animation)
 			}
+
+			requestAnimationFrame(() => {
+				animation()
+			})
+
 			this.move(nextProps.tagName)
 		}
 	}
@@ -42,10 +44,10 @@ export default class TagCloud extends React.Component {
 			return
 		}
 
-		const timer = setInterval(() => {
+		requestAnimationFrame(() => {
 			this.rotateX()
 			this.rotateY()
-		}, this.state.millisec)
+		})
 
 		this.move(this.props.tagName)
 
