@@ -12,7 +12,22 @@ export default class TagCloud extends React.Component {
 			angleX: (props.speed || 10) * BASEANGLE,
 			angleY: (props.speed || 10) * BASEANGLE,
 			tags: [],
-			millisec: props.millisec || 64
+			millisec: props.millisec || 64,
+			timer: ''
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.tagName != this.props.tagName) {
+			if(!this.state.timer) {
+				const timer = setInterval(() => {
+					this.rotateX()
+					this.rotateY()
+				}, this.state.millisec)
+
+				this.setState({ timer: timer })
+			}
+			this.move(nextProps.tagName)
 		}
 	}
 
@@ -23,12 +38,18 @@ export default class TagCloud extends React.Component {
 			this.setState({ angleX, angleY })
 		})
 
-		setInterval(() => {
+		if(this.state.tags.length === 0) {
+			return
+		}
+
+		const timer = setInterval(() => {
 			this.rotateX()
 			this.rotateY()
 		}, this.state.millisec)
 
-		this.move()
+		this.move(this.props.tagName)
+
+		this.setState({ timer: timer })
 	}
 
 	// handleMouseover(e) {
@@ -43,10 +64,10 @@ export default class TagCloud extends React.Component {
 	// 	this.setState({ angleX, angleY })
 	// }
 
-	move() {
-		const len = this.props.tagName.length
+	move(tagName) {
+		const len = tagName.length
 
-		const tags = this.props.tagName.map((tag, i) => {
+		const tags = tagName.map((tag, i) => {
 			const angleA = Math.acos((2 * (i + 1) - 1) / len - 1)
 			const angleB = angleA * Math.sqrt(len * Math.PI)
 
@@ -103,6 +124,11 @@ export default class TagCloud extends React.Component {
 
 
 	render() {
+		const containerStyle = {
+			width: '100%',
+			heght: '100%'
+		}
+
 		const wrapperStyle = {
 			position: 'relative',
 			left: '50%',
@@ -110,10 +136,12 @@ export default class TagCloud extends React.Component {
 		}
 
 		return (
-			<div className="wrapper" style={wrapperStyle}>
-				{this.state.tags.map(tag => {
-					return <Tag {...tag}> </Tag>
-				})}
+			<div className="tag-cloud-container" style={containerStyle}>
+				<div className="wrapper" style={wrapperStyle}>
+					{this.state.tags.map((tag, index) => {
+						return <Tag key={index} {...tag}> </Tag>
+					})}
+				</div>
 			</div>
 		)
 	}

@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-// import TagCloud from './src/index'
-import Demo from './src/demo'
+import Demo1 from './index.js'
 
 ReactDom.render(
-    <Demo />,
+    <Demo1 />,
     document.getElementById('app')
 )
