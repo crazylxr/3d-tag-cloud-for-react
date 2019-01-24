@@ -18,17 +18,15 @@ import React from 'react'
 import TagCloud from 'react3dtagcloud'
 
 class Demo extends React.Component {
-	render() {
-        const tagName = ['java', 'javscript', 'C', 'C++', '前端', 'React', 'Vue', 'redux', '写作', '程序员', '编程']
-
-		return (
-			<div style={{ width: '1000px', height: '1000px' }}>
-				<TagCloud tagName={tagName}></TagCloud>
-			</div>
-		)
-	}
+  render() {
+    const tagName = ['java', 'javscript', 'C', 'C++', '前端', 'React', 'Vue', 'redux', '写作', '程序员', '编程']
+	  return (
+		<div style={{ width: '1000px', height: '1000px' }}>
+		  <TagCloud tagName={tagName}></TagCloud>
+		</div>
+	  )
+   }
 }
-
 ```
 
 ## API
