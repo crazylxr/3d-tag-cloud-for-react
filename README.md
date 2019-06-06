@@ -3,7 +3,7 @@
 
 ![](https://img.shields.io/badge/npm-0.12-orange.svg) ![](https://img.shields.io/github/issues/crazylxr/3dtagcloudforeact.svg) ![](https://img.shields.io/github/forks/crazylxr/3dtagcloudforeact.svg) ![](https://img.shields.io/github/stars/crazylxr/3dtagcloudforeact.svg) ![](https://img.shields.io/github/license/crazylxr/3dtagcloudforeact.svg)
 
-基于 react 的 3d 标签云, [在线 demo](https://crazylxr.github.io/3dtagcloudforeact/)
+基于 react 的 3d 标签云, [在线 demo](https://crazylxr.github.io/3d-tag-cloud-for-react/)
 
 ## Installation
 
