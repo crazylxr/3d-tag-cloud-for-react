@@ -37,21 +37,28 @@ export default class TagCloud extends React.Component {
 		document.addEventListener('mousemove', (e) => {
 			const angleX = 2 * (e.clientX / document.body.getBoundingClientRect().width - 0.5) * this.state.speed * BASEANGLE;
 			const angleY = 2 * (e.clientY / document.body.getBoundingClientRect().height - 0.5) * this.state.speed * BASEANGLE;
-			this.setState({ angleX, angleY })
+			this.setState({
+				angleX,
+				angleY
+			})
 		})
 
-		if(this.state.tags.length === 0) {
+		if (this.props.tagName.length === 0) {
 			return
 		}
 
-		requestAnimationFrame(() => {
+		console.log(22)
+		const animation = () => {
 			this.rotateX()
 			this.rotateY()
+			requestAnimationFrame(animation)
+		}
+
+		requestAnimationFrame(() => {
+			animation()
 		})
 
 		this.move(this.props.tagName)
-
-		this.setState({ timer: timer })
 	}
 
 	// handleMouseover(e) {
