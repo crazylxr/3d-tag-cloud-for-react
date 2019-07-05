@@ -11,15 +11,16 @@ export default class Demo1 extends React.Component {
 
 	componentDidMount() {
 		const tagName = ['java', 'javscript', 'C', 'C++', '前端', 'React', 'Vue', 'redux', '写作', '程序员', '编程']
+		const repeat = (tagName.join(',') + ',').repeat(2).split(',').filter(t => !!t)
 		setTimeout(() => {
-			this.setState({ tagName: tagName })
+			this.setState({ tagName: repeat})
 		}, 1000)
 	}
 
 	render() {
 		return (
-			<div style={{ width: '1000px', height: '1000px' }}>
-				<TagCloud tagName={this.state.tagName} radius={100}></TagCloud>
+			<div style={{ width: '1000px', height: '1000px' ,padding: '150px'}}>
+				<TagCloud tagName={this.state.tagName} url={ '/pre' } radius={200}></TagCloud>
 			</div>
 		)
 	}

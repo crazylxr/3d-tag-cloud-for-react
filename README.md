@@ -37,6 +37,7 @@ class Demo extends React.Component {
 | tagName | 标签数组 | Array&lt;string&gt;| []
 | speed | 球体旋转速度 | number | 10
 | radius | 球的半径 | number | 200 |
+| url | 前缀url | string | ''
 
 ## License
 MIT

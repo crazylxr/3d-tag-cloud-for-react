@@ -1,7 +1,6 @@
 import React from 'react'
 
-const _baseAngle = Math.PI / 360,
-	R = 200;
+const R = 200;
 
 const _focalLength = R * 1.5; // 焦距
 
@@ -32,7 +31,7 @@ export default class Tag extends React.Component {
 		}
 
 		return (
-			<a href="#" style={{ ...tagStyle, ...otherStyle }}>{this.props.name}</a>
+			<a href={ this.props.url + '/' + this.props.name } style={{ ...tagStyle, ...otherStyle }}>{this.props.name}</a>
 		)
 	}
 }

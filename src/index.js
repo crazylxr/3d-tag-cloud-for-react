@@ -141,7 +141,7 @@ export default class TagCloud extends React.Component {
 			<div className="tag-cloud-container" style={containerStyle}>
 				<div className="wrapper" style={wrapperStyle}>
 					{this.state.tags.map((tag, index) => {
-						return <Tag key={index} {...tag}> </Tag>
+						return <Tag url={ this.props.url } key={index} {...tag}> </Tag>
 					})}
 				</div>
 			</div>
